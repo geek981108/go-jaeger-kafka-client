@@ -1,4 +1,4 @@
-module go-jaeger-kafka-client
+module  github.com/geek981108/go-jaeger-kafka-client
 
 go 1.16
 
