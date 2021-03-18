@@ -2,9 +2,9 @@ package test
 
 import (
 	"context"
+	"github.com/geek981108/go-jaeger-kafka-client/transport"
 	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go"
-	"go-jaeger-kafka-client/transport"
 	"testing"
 	"time"
 )
