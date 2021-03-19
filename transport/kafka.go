@@ -2,9 +2,7 @@ package transport
 
 import (
 	"bytes"
-	"fmt"
 	"github.com/Shopify/sarama"
-	"github.com/opentracing/opentracing-go/log"
 	"github.com/uber/jaeger-client-go"
 	"github.com/uber/jaeger-client-go/thrift"
 	j "github.com/uber/jaeger-client-go/thrift-gen/jaeger"
@@ -76,14 +74,12 @@ func (k *KafkaConnect) Send(spans []*j.Span) error {
 		panic(err)
 	}
 
-	partition, offset, err := producer.SendMessage(msg)
+	_, _, err = producer.SendMessage(msg)
 	if err != nil {
-		log.Error(err)
 		return err
 	}
 
 	defer producer.Close()
-	print(fmt.Sprint(partition), offset)
 	return nil
 }
 
