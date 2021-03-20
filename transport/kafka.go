@@ -60,7 +60,6 @@ func (k *KafkaConnect) Send(spans []*j.Span) error {
 		Value: sarama.ByteEncoder(value.String()),
 	}
 
-
 	config := sarama.NewConfig()
 	// waiting for all replicas save successfully
 	config.Producer.RequiredAcks = sarama.WaitForAll
